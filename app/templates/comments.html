@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% import 'macros.html' as macro %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Pitches</title>
+
+    <!-- Styles block -->
+    {% block styles%}
+    {{ super() }}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+    {% endblock %}
+
+</head>
+
+{%block content%}
+
+
+
+
+<h3 class="text-center text-uppercase" style="color:Teal"> comments</h3>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6">
+            {{macro.displayPitches(pitche)}}
+            <h3 class="pt-3"><b>{{pitch.pitch_title}}</b></h3>
+            <hr>
+            <p>{{pitch.pitch_itself}}</p>
+            <p>{{pitch.pitch_comment}}</p>
+
+        </div>
+        <div class="col-md-6">
+            {{ wtf.quick_form(commentform) }}
+            {{simplemde.load}}
+        </div>
+
+        <div class="col-md-12">
+            <h3 style="text-align:center">Comments</h3>
+        
+            {{macro.displayComments(comments)}}
+        </div>
+
+    </div>
+</div>
+
+</div>
+{% endblock %}
