@@ -44,14 +44,14 @@
 
         </div>
         <div class="col-md-6">
-            {{ wtf.quick_form(commentform) }}
+            
             {{simplemde.load}}
         </div>
 
         <div class="col-md-12">
             <h3 style="text-align:center">Comments</h3>
         
-           
+            {{macro.displayComments(comments)}}
         </div>
 
     </div>
